@@ -8,8 +8,8 @@ Also ensure that you have added the JSoup JAR as a dependency: https://jsoup.org
 Run the file called "JavaSearchEngineApplication.java".
 
 Then either in your web browser or preferably in an application like Postman:
-1) to index a website: type "http://localhost:8080/crawl?url={url of site you want crawled}"
-2) to search for something: type "http://localhost:8080/search?query={url of site you want crawled}"
+1) to index a website: type "http://localhost:8080/crawl?url= {url of site you want crawled}"
+2) to search for something: type "http://localhost:8080/search?query= {url of site you want crawled}"
 
 Crawling takes time, give it a minute or so.
 When searching, expected response is a list of urls corresponding to the search terms. (Project is still a work in progress, I want to create a better UI using React.js so in the mean time use a platform like postman)
