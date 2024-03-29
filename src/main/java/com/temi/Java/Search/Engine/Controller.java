@@ -23,15 +23,20 @@ public class Controller {
         String [] terms = query.split(" ");
         ArrayList<Document> documents = new ArrayList<>();
         for(String term:terms){
-            documents.addAll((Collection<? extends Document>) indexer.search(term));
+            ArrayList<Document> temp = indexer.search(term);
+            if(temp!=null){
+                documents.addAll((Collection<? extends Document>) temp);
+            }
+        }
+        if(documents.size()==0){
+            return "Nothing found :(";
         }
         final String[] res = {""};
         documents.forEach((doc)->{
             res[0] += doc.title() +" : "+ doc.baseUri()+"\n";
         });
-        if(res[0].length()==0){
-            return "Nothing found :(";
-        }
+
+
         return res[0];
     }
 }

@@ -75,7 +75,10 @@ public class Indexer {
         List<String> tokenizedTerms = tokenize(terms);
         Set<String> docs = new HashSet<>();
         tokenizedTerms.forEach((val)->{
-            docs.addAll(IN_MEMORY_INDEX.get(val));
+            Set<String> temp =IN_MEMORY_INDEX.get(val);
+            if(temp!=null){
+                docs.addAll(temp);
+            }
         });
         ArrayList <Document> documents = new ArrayList<>();
         if (!docs.isEmpty()){
